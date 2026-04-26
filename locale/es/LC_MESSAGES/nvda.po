@@ -1,0 +1,11 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: ModifiedWordSpeech\n"
+"Language: en\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+
+msgid "Modified Word Speech"
+msgstr "Modified Word Speech"
+
+msgid "Reads modified words correctly."
+msgstr "Reads modified words correctly."
