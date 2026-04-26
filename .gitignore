@@ -1,5 +1,15 @@
+# cache Python
 __pycache__/
 *.pyc
-tools/
+
+# build artifacts
+dist/
 build/
 *.nvda-addon
+
+# system / editor
+.vscode/
+.idea/
+
+# opzionale ma consigliato
+*.log

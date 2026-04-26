@@ -62,19 +62,23 @@ def speakPreviousWord(obj, ch):
 		if not text_content:
 			return
 
-		# Basic cleanup
+		# FIX GMAIL/WEB: Normalizziamo tutto PRIMA dei controlli logici.
+		# Chrome inserisce spesso \xa0 (NBSP) e \u200b (Zero-Width Space) nel DOM.
 		clean_text = (
 			text_content.replace("\xa0", " ")
+			.replace("\u200b", "")
 			.replace("\r", "")
 			.replace("\n", "")
 		)
 
 		# --- Anti-duplication logic ---
 		if not is_enter and ch != "\b":
+			# Ora usiamo clean_text. Anche se Chrome aveva inserito un \xa0,
+			# adesso è uno spazio normale, quindi endswith(ch) funzionerà a dovere.
 			text_before = (
-				text_content[:-len(ch)]
-				if text_content.endswith(ch)
-				else text_content
+				clean_text[:-len(ch)]
+				if clean_text.endswith(ch)
+				else clean_text
 			)
 			if text_before and not text_before[-1].isalnum():
 				return
